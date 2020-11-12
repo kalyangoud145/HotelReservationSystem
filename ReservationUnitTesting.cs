@@ -99,6 +99,32 @@ namespace ReservationUnitTest
             Assert.AreEqual(expectedHotelRate, actualHotelRate);
             Assert.AreEqual(expectedHotelName, actualHotelName);
         }
+        ///TC 5 
+        /// <summary>
+        /// Adding the rating to hotels and verifying.
+        /// </summary>
+        [TestMethod]
+        public void Adding_Rating_To_Hotels_And_Verifying()
+        {
+            //Arrange
+            int expectedRating = 5;
+            Hotel lakeWood = new Hotel
+            {
+                Rating = 3
+            };
+            Hotel bridgeWood = new Hotel
+            {
+                Rating = 4
+            };
+            Hotel ridgeWood = new Hotel
+            {
+                Rating = 5
+            };
+            //Act
+            int actualRating = ridgeWood.Rating;
+            //Assert
+            Assert.AreEqual(expectedRating, actualRating);
+        }
     }
 }
 
