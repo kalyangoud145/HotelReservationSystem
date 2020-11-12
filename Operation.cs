@@ -100,8 +100,8 @@ namespace HotelReservationSystem
         {
             totalCost = 0;
             Hotel bridgeWood = new Hotel();
-            bridgeWood.WeekdayRateForRegularCustomer = 160;
-            bridgeWood.WeekendRateForRegularCustomer = 60;
+            bridgeWood.WeekdayRateForRegularCustomer = 150;
+            bridgeWood.WeekendRateForRegularCustomer = 50;
             string checkInday = GetDay(checkInDate);
             string checkOutday = GetDay(checkOutDate);
             if (checkInday.Equals("Saturday") || checkInday.Equals("Sunday"))
@@ -180,14 +180,26 @@ namespace HotelReservationSystem
             int leastCost = FindCheapestHotelRate(checkInDate, checkOutDate);
             if (leastCost == GetLakewoodCost(checkInDate, checkOutDate))
             {
+                if (leastCost == GetBridgewoodCost(checkInDate, checkOutDate))
+                {
+                    return "Lakewood and Bridgewood";
+                }
                 return "Lakewood";
             }
             else if (leastCost == GetBridgewoodCost(checkInDate, checkOutDate))
             {
+                if (leastCost == GetRidgewoodCost(checkInDate, checkOutDate))
+                {
+                    return "Bridgewood and Ridgewood";
+                }
                 return "Bridgewood";
             }
             else
             {
+                if (leastCost == GetLakewoodCost(checkInDate, checkOutDate))
+                {
+                    return "Ridgewood and Lakewood";
+                }
                 return "Ridgewood";
             }
         }

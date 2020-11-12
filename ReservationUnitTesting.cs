@@ -82,6 +82,23 @@ namespace ReservationUnitTest
             Assert.AreEqual(expectedWeekDayRateforRegularCustomer, lakeWood.WeekdayRateForRegularCustomer);
             Assert.AreEqual(expectedWeekendRateforRegularCustomer, lakeWood.WeekendRateForRegularCustomer);
         }
+        ///TC 4
+        /// <summary>
+        /// Givens the date range including weekend should return cheapest hotel.
+        /// </summary>
+        [TestMethod]
+        public void Given_Date_Range_Including_Weekend_Should_Return_Cheapest_Hotel()
+        {
+            //Arrange
+            int expectedHotelRate = 200;
+            string expectedHotelName = "Lakewood and Bridgewood";
+            //Act
+            int actualHotelRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020");
+            string actualHotelName = Operation.FindCheapestHotelName("11Sep2020", "12Sep2020");
+            //Assert
+            Assert.AreEqual(expectedHotelRate, actualHotelRate);
+            Assert.AreEqual(expectedHotelName, actualHotelName);
+        }
     }
 }
 
