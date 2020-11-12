@@ -141,6 +141,23 @@ namespace ReservationUnitTest
             Assert.AreEqual(expectedRate, actualRate);
             Assert.AreEqual(expectedHotelName, actualHotelName);
         }
+        ///TC 7
+        /// <summary>
+        /// Given the date range should return best rated hotel.
+        /// </summary>
+        [TestMethod]
+        public void Given_Date_Range_Should_Return_BestRated_Hotel()
+        {
+            //Arrange
+            string expectedHotelName = "Ridgewood";
+            int expectedRate = 370;
+            //Act
+            string actualHotelName = Operation.FindBestRatedHotelName("11Sep2020", "12Sep2020");
+            int actualRate = Operation.FindBestRatedHotelRate("11Sep2020", "12Sep2020");
+            //Assert
+            Assert.AreEqual(expectedRate, actualRate);
+            Assert.AreEqual(expectedHotelName, actualHotelName);
+        }
     }
 }
 
