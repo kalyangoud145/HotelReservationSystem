@@ -200,6 +200,26 @@ namespace ReservationUnitTest
             Assert.AreEqual(expectedWeekendRate, actualWeekendRate);
             Assert.AreEqual(expectedWeekdayRate, actualWeekdayRate);
         }
+        ///TC 9
+        /// <summary>
+        /// Finds the cheapest best hotel and rating and price and verifying.
+        /// </summary>
+        [TestMethod]
+        public void FindCheapest_BestHotel_AndRatingAndPrice_And_Verifying()
+        {
+            //Arrange
+            string expectedHotelName = "Ridgewood";
+            int expectedRate = 140;
+            int expectedRating = 5;
+            //Act
+            string actualHotelName = Operation.FindCheapestBestRatedHotelName("11Sep2020", "12Sep2020", "Reward");
+            int actualRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020", "Reward");
+            int actualRating = Operation.GetRatingOfHotel(actualHotelName);
+            //Assert
+            Assert.AreEqual(expectedHotelName, actualHotelName);
+            Assert.AreEqual(expectedRate, actualRate);
+            Assert.AreEqual(expectedRating, actualRating);
+        }
     }
 }
 
