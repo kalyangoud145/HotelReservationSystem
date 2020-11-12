@@ -203,5 +203,65 @@ namespace HotelReservationSystem
                 return "Ridgewood";
             }
         }
+        /// <summary>
+        /// Gives the rating of hotel passed
+        /// </summary>
+        /// <param name="hotel">The hotel.</param>
+        /// <returns></returns>
+        public static int GetRatingOfHotel(string hotel)
+        {
+            Hotel lakeWood = new Hotel
+            {
+                Rating = 3
+            };
+            Hotel bridgeWood = new Hotel
+            {
+                Rating = 4
+            };
+            Hotel ridgeWood = new Hotel
+            {
+                Rating = 5
+            };
+            if (hotel.Equals("Lakewood"))
+            {
+                return lakeWood.Rating;
+            }
+            else if (hotel.Equals("Bridgewood"))
+            {
+                return bridgeWood.Rating;
+            }
+            else
+            {
+                return ridgeWood.Rating;
+            }
+        }
+        /// <summary>
+        /// Return  the name of the cheapest best rated hotel.
+        /// </summary>
+        /// <param name="checkInDate">The check in date.</param>
+        /// <param name="checkOutDate">The check out date.</param>
+        /// <returns></returns>
+        public static string FindCheapestBestRatedHotelName(string checkInDate, string checkOutDate)
+        {
+            string hotelName = FindCheapestHotelName(checkInDate, checkOutDate);
+            if (hotelName.Contains("and"))
+            {
+                string[] hotels = hotelName.Split(" and ");
+                int rating1 = GetRatingOfHotel(hotels[0]);
+                int rating2 = GetRatingOfHotel(hotels[1]);
+                if (rating1 > rating2)
+                {
+                    return hotels[0];
+                }
+                else
+                {
+                    return hotels[1];
+                }
+            }
+            else
+            {
+                return hotelName;
+            }
+        }
     }
 }
