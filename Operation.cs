@@ -89,18 +89,47 @@ namespace HotelReservationSystem
             DateTime d = new DateTime(year, Operation.GetMonthInDigits(month), day);
             return d.DayOfWeek.ToString();
         }
+        /// <summary>
+        /// Returns the lakewood hotel cost.
+        /// </summary>
+        /// <param name="checkInDate">The check in date.</param>
+        /// <param name="checkOutDate">The check out date.</param>
+        /// <param name="customerType">Type of the customer.</param>
+        /// <returns></returns>
         public static int GetLakewoodCost(string checkInDate, string checkOutDate, string customerType)
         {
             return GetHotelCost(checkInDate, checkOutDate, customerType, lakeWood);
         }
+        /// <summary>
+        /// Returns the bridgewood cost
+        /// </summary>
+        /// <param name="checkInDate">The check in date.</param>
+        /// <param name="checkOutDate">The check out date.</param>
+        /// <param name="customerType">Type of the customer.</param>
+        /// <returns></returns>
         public static int GetBridgewoodCost(string checkInDate, string checkOutDate, string customerType)
         {
             return GetHotelCost(checkInDate, checkOutDate, customerType, bridgeWood);
         }
+        /// <summary>
+        /// Retuns the ridgewood cost.
+        /// </summary>
+        /// <param name="checkInDate">The check in date.</param>
+        /// <param name="checkOutDate">The check out date.</param>
+        /// <param name="customerType">Type of the customer.</param>
+        /// <returns></returns>
         public static int GetRidgewoodCost(string checkInDate, string checkOutDate, string customerType)
         {
             return GetHotelCost(checkInDate, checkOutDate, customerType, ridgeWood);
         }
+        /// <summary>
+        /// Gives the hotel cost.
+        /// </summary>
+        /// <param name="checkInDate">The check in date.</param>
+        /// <param name="checkOutDate">The check out date.</param>
+        /// <param name="customerType">Type of the customer.</param>
+        /// <param name="hotel">The hotel.</param>
+        /// <returns></returns>
         public static int GetHotelCost(string checkInDate, string checkOutDate, string customerType, Hotel hotel)
         {
             totalCost = 0;
