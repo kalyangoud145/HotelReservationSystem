@@ -10,5 +10,7 @@ namespace HotelReservationSystem
         public int Rating { get; set; }
         public int WeekdayRateForRegularCustomer { get; set; }
         public int WeekendRateForRegularCustomer { get; set; }
+        public int WeekdayRateForRewardCustomer { get; set; }
+        public int WeekendRateForRewardCustomer { get; set; }
     }
 }
