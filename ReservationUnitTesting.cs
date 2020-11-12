@@ -99,7 +99,6 @@ namespace ReservationUnitTest
             Assert.AreEqual(expectedHotelRate, actualHotelRate);
             Assert.AreEqual(expectedHotelName, actualHotelName);
         }
-        ///TC 5 
         /// <summary>
         /// Adding the rating to hotels and verifying.
         /// </summary>
@@ -124,6 +123,23 @@ namespace ReservationUnitTest
             int actualRating = ridgeWood.Rating;
             //Assert
             Assert.AreEqual(expectedRating, actualRating);
+        }
+        ///TC 6
+        /// <summary>
+        /// Given the date range should return cheapest best rated hotel.
+        /// </summary>
+        [TestMethod]
+        public void Given_Date_Range_Should_Return_Cheapest_BestRated_Hotel()
+        {
+            //Arrange
+            string expectedHotelName = "Bridgewood";
+            int expectedRate = 200;
+            //Act
+            string actualHotelName = Operation.FindCheapestBestRatedHotelName("11Sep2020", "12Sep2020");
+            int actualRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020");
+            //Assert
+            Assert.AreEqual(expectedRate, actualRate);
+            Assert.AreEqual(expectedHotelName, actualHotelName);
         }
     }
 }
