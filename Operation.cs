@@ -263,5 +263,54 @@ namespace HotelReservationSystem
                 return hotelName;
             }
         }
+        /// <summary>
+        /// Find the name of the best rated hotel.
+        /// </summary>
+        /// <param name="checkInDate">The check in date.</param>
+        /// <param name="checkOutDate">The check out date.</param>
+        /// <returns></returns>
+        public static string FindBestRatedHotelName(string checkInDate, string checkOutDate)
+        {
+            int cost = FindBestRatedHotelRate(checkInDate, checkOutDate);
+            if (cost == GetRidgewoodCost(checkInDate, checkOutDate))
+            {
+                return "Ridgewood";
+            }
+            else if (cost == GetBridgewoodCost(checkInDate, checkOutDate))
+            {
+                return "Bridgewood";
+            }
+            else
+            {
+                return "Lakewood";
+            }
+        }
+        /// <summary>
+        /// Find the best rated hotel rate.
+        /// </summary>
+        /// <param name="checkInDate">The check in date.</param>
+        /// <param name="checkOutDate">The check out date.</param>
+        /// <returns></returns>
+        public static int FindBestRatedHotelRate(string checkInDate, string checkOutDate)
+        {
+            int lakewoodRating = GetRatingOfHotel("Lakewood");
+            int bridgewoodRating = GetRatingOfHotel("Bridgewood");
+            int ridgewoodRating = GetRatingOfHotel("Ridgewood");
+            int maxRating = lakewoodRating > bridgewoodRating ? lakewoodRating : bridgewoodRating;
+            maxRating = maxRating > ridgewoodRating ? maxRating : ridgewoodRating;
+            if (maxRating == lakewoodRating)
+            {
+                return GetLakewoodCost(checkInDate, checkOutDate);
+            }
+            else if (maxRating == bridgewoodRating)
+            {
+                return GetBridgewoodCost(checkInDate, checkOutDate);
+            }
+            else
+            {
+                return GetRidgewoodCost(checkInDate, checkOutDate);
+            }
+        }
     }
 }
+
