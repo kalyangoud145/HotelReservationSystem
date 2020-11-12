@@ -6,6 +6,7 @@ namespace ReservationUnitTest
     [TestClass]
     public class ReservationUnitTesting
     {
+        ///TC 1
         /// <summary>
         ///checks Addition of the hotel name and regular customer rates 
         /// </summary>
@@ -34,6 +35,7 @@ namespace ReservationUnitTest
             Assert.AreEqual(expectedWeekDayRateforRegularCustomer, lakeWood.WeekdayRateForRegularCustomer);
             Assert.AreEqual(expectedWeekendRateforRegularCustomer, lakeWood.WeekendRateForRegularCustomer);
         }
+        ///TC 2
         /// <summary>
         /// Givens the date range should return cheapest hotel.
         /// </summary>
@@ -49,6 +51,36 @@ namespace ReservationUnitTest
             //Assert
             Assert.AreEqual(expectedHotelName, actualHotelName);
             Assert.AreEqual(expectedHotelRate, actualHotelRate);
+        }
+        ///TC 3
+        /// <summary>
+        /// Adding the weekday and weekend regular customer rates and verifying.
+        /// </summary>
+        [TestMethod]
+        public void Adding_Weekday_And_Weekend_RegularCustomerRates_And_Verifying()
+        {
+            //Arrange
+            int expectedWeekDayRateforRegularCustomer = 110;
+            int expectedWeekendRateforRegularCustomer = 90;
+            //Act
+            Hotel lakeWood = new Hotel
+            {
+                WeekdayRateForRegularCustomer = 110,
+                WeekendRateForRegularCustomer = 90
+            };
+            Hotel bridgeWood = new Hotel
+            {
+                WeekdayRateForRegularCustomer = 150,
+                WeekendRateForRegularCustomer = 50
+            };
+            Hotel ridgeWood = new Hotel
+            {
+                WeekdayRateForRegularCustomer = 220,
+                WeekendRateForRegularCustomer = 150
+            };
+            //Assert
+            Assert.AreEqual(expectedWeekDayRateforRegularCustomer, lakeWood.WeekdayRateForRegularCustomer);
+            Assert.AreEqual(expectedWeekendRateforRegularCustomer, lakeWood.WeekendRateForRegularCustomer);
         }
     }
 }
