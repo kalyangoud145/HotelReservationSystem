@@ -6,7 +6,7 @@ namespace ReservationUnitTest
     [TestClass]
     public class ReservationUnitTesting
     {
-        ///TC 1
+        /*///TC 1
         /// <summary>
         ///checks Addition of the hotel name and regular customer rates 
         /// </summary>
@@ -157,7 +157,7 @@ namespace ReservationUnitTest
             //Assert
             Assert.AreEqual(expectedRate, actualRate);
             Assert.AreEqual(expectedHotelName, actualHotelName);
-        }
+        }*/
         ///TC 8
         /// <summary>
         /// Addings the weekday and weekend reward customer rates and verifying.
@@ -205,7 +205,7 @@ namespace ReservationUnitTest
         /// Finds the cheapest best hotel and rating and price and verifying.
         /// </summary>
         [TestMethod]
-        public void FindCheapest_BestHotel_AndRatingAndPrice_And_Verifying()
+        public void FindCheapest_BestHotel_AndRatingAndPrice_ForRewardCustomerAnd_Verifying()
         {
             //Arrange
             string expectedHotelName = "Ridgewood";
@@ -214,6 +214,26 @@ namespace ReservationUnitTest
             //Act
             string actualHotelName = Operation.FindCheapestBestRatedHotelName("11Sep2020", "12Sep2020", "Reward");
             int actualRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020", "Reward");
+            int actualRating = Operation.GetRatingOfHotel(actualHotelName);
+            //Assert
+            Assert.AreEqual(expectedHotelName, actualHotelName);
+            Assert.AreEqual(expectedRate, actualRate);
+            Assert.AreEqual(expectedRating, actualRating);
+        }
+        ///TC 10
+        /// <summary>
+        /// Find the cheapest best hotel and rating and price for regular customer and verifying.
+        /// </summary>
+        [TestMethod]
+        public void FindCheapest_BestHotel_AndRatingAndPrice_ForRegularCustomer_And_Verifying()
+        {
+            //Arrange
+            string expectedHotelName = "Bridgewood";
+            int expectedRate = 200;
+            int expectedRating = 4;
+            //Act
+            string actualHotelName = Operation.FindCheapestBestRatedHotelName("11Sep2020", "12Sep2020", "Regular");
+            int actualRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020", "Regular");
             int actualRating = Operation.GetRatingOfHotel(actualHotelName);
             //Assert
             Assert.AreEqual(expectedHotelName, actualHotelName);
