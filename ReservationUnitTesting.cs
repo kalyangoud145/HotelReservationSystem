@@ -6,7 +6,7 @@ namespace ReservationUnitTest
     [TestClass]
     public class ReservationUnitTesting
     {
-        /*///TC 1
+        ///TC 1
         /// <summary>
         ///checks Addition of the hotel name and regular customer rates 
         /// </summary>
@@ -157,7 +157,7 @@ namespace ReservationUnitTest
             //Assert
             Assert.AreEqual(expectedRate, actualRate);
             Assert.AreEqual(expectedHotelName, actualHotelName);
-        }*/
+        }
         ///TC 8
         /// <summary>
         /// Addings the weekday and weekend reward customer rates and verifying.
